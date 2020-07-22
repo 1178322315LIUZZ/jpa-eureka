@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="client" />
-        <module name="gataway" />
         <module name="provider" />
         <module name="eureka-service" />
+        <module name="gataway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

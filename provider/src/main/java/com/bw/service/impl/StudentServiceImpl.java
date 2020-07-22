@@ -26,4 +26,9 @@ public class StudentServiceImpl implements StudentService {
         PageImpl<Student> all = (PageImpl<Student>) studentResponsity.findAll(pageable);
         return new MyPageImpl<Student>(all);
     }
+
+    @Override
+    public List<Student> list(Pageable pageable) {
+        return studentResponsity.findAll(pageable).getContent();
+    }
 }

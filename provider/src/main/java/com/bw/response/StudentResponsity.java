@@ -8,6 +8,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface StudentResponsity extends JpaRepository<Student,Integer> {
-    @Query(value="SELECT * FROM student", nativeQuery=true)
-    List<Student> list();
+
 }

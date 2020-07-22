@@ -11,4 +11,6 @@ import java.util.List;
 public interface StudentService {
 
     MyPageImpl<Student> lists(int pageNum, int pageSize);
+
+    List<Student> list(Pageable pageable);
 }
