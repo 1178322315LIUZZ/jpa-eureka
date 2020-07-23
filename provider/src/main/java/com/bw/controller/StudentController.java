@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,8 +31,17 @@ public class StudentController {
         return new PageInfo<Student>(list);
     }
     @RequestMapping("lists")
-    public PageInfo<Student> lists(@RequestParam(defaultValue = "0") int pageNum, @RequestParam(defaultValue = "3")  int pageSize){
+    public PageInfo<Student> lists(@RequestParam(defaultValue = "0") int pageNum, @RequestParam(defaultValue = "3")  int pageSize, @RequestBody Student student){
+       // System.err.println(student);
         Pageable pageable = PageRequest.of(pageNum,pageSize);
-        return userService.lists(pageable);
+        return userService.lists(pageable,student);
+    }
+    @RequestMapping("add")
+    public boolean add(@RequestBody Student student){
+        return userService.add(student);
+    }
+    @RequestMapping("del")
+    public boolean del(@RequestBody String sid){
+        return userService.del(sid);
     }
 }

@@ -2,6 +2,7 @@ package com.bw.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,5 +22,10 @@ public class Student implements Serializable {
     private String age;
     private String sex;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date data;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
+
+    @OneToOne(targetEntity = Dept.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "did",referencedColumnName = "did",insertable = true,updatable = true,nullable = true)
+    private Dept dept;
 }

@@ -14,5 +14,9 @@ public interface StudentService {
 
     List<Student> list();
 
-    PageInfo<Student> lists(Pageable pageable);
+    PageInfo<Student> lists(Pageable pageable,Student student);
+
+    boolean add(Student student);
+
+    boolean del(String sid);
 }

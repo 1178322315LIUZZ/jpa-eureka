@@ -20,8 +20,20 @@ public class StudentRong implements StudentServices{
     }
 
     @Override
-    public PageInfo<Student> list(int pageNum, int pageSize) {
+    public PageInfo<Student> list(int pageNum, int pageSize, Student student) {
         System.out.println("数据异常，请检查后在进行操作");
         return null;
+    }
+
+    @Override
+    public boolean adds(Student student) {
+        System.out.println("数据异常，请检查后在进行操作");
+        return false;
+    }
+
+    @Override
+    public boolean delete(String sid) {
+        System.out.println("数据异常，请检查后在进行操作");
+        return false;
     }
 }
