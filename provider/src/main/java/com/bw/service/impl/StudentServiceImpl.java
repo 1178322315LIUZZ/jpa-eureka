@@ -14,10 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +44,11 @@ public class StudentServiceImpl implements StudentService {
                 if(student.getSname()!=null){
                     Predicate sname = criteriaBuilder.like(root.get("sname"), "%" + student.getSname() + "%");
                     list.add(sname);
+                }
+                if(student.getDate()!=null){
+                   // Predicate date = criteriaBuilder.lessThan(root.get("date"),student.getDate());
+                    Predicate date = criteriaBuilder.greaterThan(root.get("date"),student.getDate());
+                    list.add(date);
                 }
                 Predicate[] predicates = list.toArray(new Predicate[list.size()]);
                 Predicate and = criteriaBuilder.and(predicates);
