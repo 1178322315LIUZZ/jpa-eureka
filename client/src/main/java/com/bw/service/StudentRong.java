@@ -18,4 +18,10 @@ public class StudentRong implements StudentServices{
         System.out.println("数据异常，请检查后在进行操作");
         return null;
     }
+
+    @Override
+    public PageInfo<Student> list(int pageNum, int pageSize) {
+        System.out.println("数据异常，请检查后在进行操作");
+        return null;
+    }
 }

@@ -40,8 +40,12 @@ public class Text {
     public void text2(){
         Pageable pageable = PageRequest.of(1,3);
         Page<Student> all = studentResponsity.findAll(pageable);
+        long totalElements = all.getTotalElements();
+        System.err.println(totalElements);
         List<Student> content = all.getContent();
         PageInfo<Student> page=new PageInfo<Student>(content);
+        page.setTotal(totalElements);
+        System.out.println(page);
         List<Student> list = page.getList();
         list.forEach(System.err::println);
     }

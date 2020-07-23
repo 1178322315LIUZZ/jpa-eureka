@@ -25,5 +25,9 @@ public class StudentController {
     public PageInfo<Student> tolist(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "3")  int pageSize){
         return studentServices.tolist(pageNum,pageSize);
     }
+    @RequestMapping("pagelist")
+    public PageInfo<Student> pagelist(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "3")  int pageSize){
+        return studentServices.list(pageNum,pageSize);
+    }
 
 }

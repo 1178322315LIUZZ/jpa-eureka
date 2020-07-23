@@ -17,4 +17,6 @@ public interface StudentServices {
     public MyPageImpl<Student> lists(@RequestParam(defaultValue = "0") int pageNum, @RequestParam(defaultValue = "3")  int pageSize);
     @RequestMapping("/list")
     PageInfo<Student> tolist(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "3")  int pageSize);
+    @RequestMapping("/lists")
+    PageInfo<Student> list(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "3")  int pageSize);
 }

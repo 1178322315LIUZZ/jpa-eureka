@@ -28,7 +28,18 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> list(Pageable pageable) {
-        return studentResponsity.findAll(pageable).getContent();
+    public List<Student> list() {
+        return studentResponsity.findAll();
     }
+
+    @Override
+    public PageInfo<Student> lists(Pageable pageable) {
+        Page<Student> all = studentResponsity.findAll(pageable);
+        PageInfo<Student> pageInfo = new PageInfo<>(all.getContent());
+        pageInfo.setTotal(all.getTotalElements());
+        pageInfo.setPageNum(all.getNumber());
+        pageInfo.setPageSize(all.getSize());
+        return pageInfo;
+    }
+
 }

@@ -12,5 +12,7 @@ public interface StudentService {
 
     MyPageImpl<Student> lists(int pageNum, int pageSize);
 
-    List<Student> list(Pageable pageable);
+    List<Student> list();
+
+    PageInfo<Student> lists(Pageable pageable);
 }
