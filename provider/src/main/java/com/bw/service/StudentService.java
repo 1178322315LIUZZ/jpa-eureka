@@ -1,6 +1,8 @@
 package com.bw.service;
 
+import com.bw.entity.Levels;
 import com.bw.entity.MyPageImpl;
+import com.bw.entity.Sport;
 import com.bw.entity.Student;
 import com.github.pagehelper.PageInfo;
 import org.springframework.data.domain.Page;
@@ -19,4 +21,8 @@ public interface StudentService {
     boolean add(Student student);
 
     boolean del(String sid);
+
+    List<Levels> level();
+
+    List<Sport> sport();
 }

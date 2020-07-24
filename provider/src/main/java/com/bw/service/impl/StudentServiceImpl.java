@@ -1,7 +1,11 @@
 package com.bw.service.impl;
 
+import com.bw.entity.Levels;
 import com.bw.entity.MyPageImpl;
+import com.bw.entity.Sport;
 import com.bw.entity.Student;
+import com.bw.response.LevelResponsity;
+import com.bw.response.SportResponsity;
 import com.bw.response.StudentResponsity;
 import com.bw.service.StudentService;
 import com.github.pagehelper.PageHelper;
@@ -22,7 +26,10 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentResponsity studentResponsity;
-
+    @Autowired
+    LevelResponsity levelResponsity;
+    @Autowired
+    SportResponsity sportResponsity;
     @Override
     public MyPageImpl<Student> lists(int pageNum, int pageSize) {
         Pageable pageable = PageRequest.of(pageNum,pageSize);
@@ -79,6 +86,16 @@ public class StudentServiceImpl implements StudentService {
             studentResponsity.deleteById(Integer.parseInt(s));
         }
         return true;
+    }
+
+    @Override
+    public List<Levels> level() {
+        return levelResponsity.findAll();
+    }
+
+    @Override
+    public List<Sport> sport() {
+        return sportResponsity.findAll();
     }
 
 }

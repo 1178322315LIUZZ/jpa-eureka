@@ -1,11 +1,15 @@
 package com.bw.service;
 
+import com.bw.entity.Levels;
 import com.bw.entity.MyPageImpl;
+import com.bw.entity.Sport;
 import com.bw.entity.Student;
 import com.github.pagehelper.PageInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @FeignClient(name = "provider",fallback = StudentRong.class)
 public interface StudentServices {
@@ -19,6 +23,10 @@ public interface StudentServices {
     boolean adds(Student student);
     @RequestMapping("/del")
     boolean delete(String sid);
+    @RequestMapping("level")
+    List<Levels> level();
+    @RequestMapping("sport")
+    List<Sport> sports();
 
 
 

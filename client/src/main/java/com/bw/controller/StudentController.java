@@ -1,6 +1,8 @@
 package com.bw.controller;
 
+import com.bw.entity.Levels;
 import com.bw.entity.MyPageImpl;
+import com.bw.entity.Sport;
 import com.bw.entity.Student;
 import com.bw.service.StudentServices;
 import com.github.pagehelper.PageInfo;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -38,10 +41,19 @@ public class StudentController {
     }
     @RequestMapping("toadd")
     public Boolean toadd(@RequestBody Student student){
+        //System.err.println(student);
         return studentServices.adds(student);
     }
     @RequestMapping("delete")
     public boolean delete(String sid){
         return studentServices.delete(sid);
+    }
+    @RequestMapping("level")
+    public List<Levels> listlve(){
+        return studentServices.level();
+    }
+    @RequestMapping("sport")
+    public List<Sport> sports(){
+        return studentServices.sports();
     }
 }
